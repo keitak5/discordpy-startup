@@ -6,7 +6,7 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
-class MakeTeam:
+class RoleDeal:
 
     def __init__(self):
         self.channel_mem = []
@@ -25,7 +25,7 @@ class MakeTeam:
         return True
 
     # チーム数を指定した場合のチーム分け
-    def make_specified_len(self, ctx, remainder_flag='false'):
+    def role_deal(self, ctx, remainder_flag='false'):
         team = []
         
         if self.set_mem(ctx) is False:
@@ -56,8 +56,8 @@ async def on_ready():
 # メンバー数を指定してチーム分け
 @bot.command()
 async def group(ctx):
-    make_team = MakeTeam()
-    msg = make_team.make_specified_len(ctx)
+    role_deal = RoleDeal()
+    msg = role_deal.make_specified_len(ctx)
     await ctx.channel.send(msg)
 
 
