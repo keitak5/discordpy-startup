@@ -25,7 +25,7 @@ class RoleDeal:
         return True
 
     # チーム数を指定した場合のチーム分け
-    def role_deal(self, ctx, remainder_flag='false'):
+    def team_role_deal(self, ctx, remainder_flag='false'):
         team = []
         
         if self.set_mem(ctx) is False:
@@ -55,7 +55,7 @@ async def on_ready():
 
 # メンバー数を指定してチーム分け
 @bot.command()
-async def group(ctx):
+async def deal(ctx):
     role_deal = RoleDeal()
     msg = role_deal.make_specified_len(ctx)
     await ctx.channel.send(msg)
